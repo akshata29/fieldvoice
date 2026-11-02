@@ -1,0 +1,131 @@
+{
+ "run_id": "20261030-220829-fc39e2",
+ "label": "ladder-heldout-phi-4-mini",
+ "created_at": "2026-10-30T22:08:29Z",
+ "finished_at": "2026-10-30T22:15:12Z",
+ "dataset_id": "synth-v1",
+ "status": "succeeded",
+ "progress": 1.0,
+ "hardware": {
+  "cpu_name": "Intel(R) Core(TM) Ultra 7 165H",
+  "physical_cores": 16,
+  "logical_cores": 22,
+  "ram_gb": 63.6,
+  "os": "Windows 11",
+  "os_build": "10.0.26300",
+  "python_version": "3.11.9",
+  "device_profile": "dev-box-quiet",
+  "battery_present": true,
+  "notes": [
+   "Not a field-fleet device: results rank options only and are not representative of the Latitude 7220 (8th-gen U-series CPU, <=16 GB LPDDR3, no NPU).",
+   "This CPU has an NPU; auto-selected NPU variants may be used unless variants are pinned."
+  ]
+ },
+ "request": {
+  "dataset_id": "synth-v1",
+  "configs": [
+   {
+    "stt_engine_id": "oracle:stt:transcript",
+    "llm_engine_id": "foundry:llm:phi-4-mini:cpu",
+    "strategy_id": "hybrid"
+   }
+  ],
+  "limit": null,
+  "splits": [
+   "heldout"
+  ],
+  "tags": null,
+  "repeats": 1,
+  "warmup": 1,
+  "confidence_threshold": 0.8,
+  "label": "ladder-heldout-phi-4-mini"
+ },
+ "configs": [
+  {
+   "config_key": "oracle:stt:transcript|foundry:llm:phi-4-mini:cpu|hybrid",
+   "config": {
+    "stt_engine_id": "oracle:stt:transcript",
+    "llm_engine_id": "foundry:llm:phi-4-mini:cpu",
+    "strategy_id": "hybrid"
+   },
+   "n_cases": 63,
+   "n_errors": 0,
+   "wer": null,
+   "wer_normalized": null,
+   "id_exact_match": null,
+   "rtf": null,
+   "field_accuracy": 0.9833795013850416,
+   "id_field_accuracy": 1.0,
+   "accuracy_by_type": {
+    "enum": 0.9433962264150944,
+    "entity_ref": 1.0,
+    "boolean": 1.0,
+    "number": 1.0
+   },
+   "accuracy_by_tag": {
+    "colloquial": 0.9802631578947368,
+    "digits": 0.9838056680161943,
+    "nato": 0.9722222222222222,
+    "grouped": 0.9911504424778761,
+    "noisy": 1.0,
+    "noise_wind": 1.0,
+    "snr_15": 1.0,
+    "noise_muffled": 1.0,
+    "snr_20": 1.0,
+    "clean": 0.9696969696969697,
+    "noise_engine": 1.0,
+    "reverb": 1.0,
+    "noise_crackle": 1.0,
+    "noise_pink": 1.0,
+    "snr_5": 1.0,
+    "noise_white": 1.0,
+    "snr_10": 1.0
+   },
+   "form_exact_match": 0.9047619047619048,
+   "silent_wrong_rate": 0.0,
+   "hallucination_rate": 0.0,
+   "review_rate": 0.21052631578947367,
+   "safe_outcome_rate": 0.9889196675900277,
+   "schema_valid_rate": 1.0,
+   "latency_total": {
+    "n": 63,
+    "mean": 5905.633680960385,
+    "p50": 6287.808299763128,
+    "p95": 9041.791359975468,
+    "max": 9212.715800036676
+   },
+   "latency_stt": {
+    "n": 0,
+    "mean": null,
+    "p50": null,
+    "p95": null,
+    "max": null
+   },
+   "latency_extract": {
+    "n": 63,
+    "mean": 5905.633680960385,
+    "p50": 6287.808299763128,
+    "p95": 9041.791359975468,
+    "max": 9212.715800036676
+   },
+   "latency_llm": {
+    "n": 52,
+    "mean": 7153.699267308604,
+    "p50": 7199.31135000661,
+    "p95": 9078.3296899579,
+    "max": 9210.90710000135
+   },
+   "llm_prompt_tokens_mean": 124.84615384615384,
+   "llm_output_tokens_mean": 21.307692307692307,
+   "cold_start_ms": 16080.08039998822,
+   "peak_rss_mb": 4695.80078125,
+   "model_size_mb": 4915.0
+  }
+ ],
+ "notes": [
+  "Peak RAM is the estimated resident footprint of the models (delta over the process baseline), STT and LLM phases summed.",
+  "Latency excludes one-off model load (reported as cold start).",
+  "Not a field-fleet device: results rank options only and are not representative of the Latitude 7220 (8th-gen U-series CPU, <=16 GB LPDDR3, no NPU).",
+  "This CPU has an NPU; auto-selected NPU variants may be used unless variants are pinned."
+ ]
+}

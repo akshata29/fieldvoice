@@ -1,0 +1,180 @@
+{
+ "profile": "dev-box-quiet",
+ "hardware": {
+  "cpu_name": "Intel(R) Core(TM) Ultra 7 165H",
+  "physical_cores": 16,
+  "logical_cores": 22,
+  "ram_gb": 63.6,
+  "os": "Windows 11",
+  "os_build": "10.0.26300",
+  "python_version": "3.11.9",
+  "device_profile": "dev-box-quiet",
+  "battery_present": true,
+  "notes": [
+   "Not a field-fleet device: results rank options only and are not representative of the Latitude 7220 (8th-gen U-series CPU, <=16 GB LPDDR3, no NPU).",
+   "This CPU has an NPU; auto-selected NPU variants may be used unless variants are pinned."
+  ]
+ },
+ "stt": [
+  {
+   "engine_id": "foundry:stt:whisper-tiny:cpu",
+   "cold_start_ms": 1712.3719999799505,
+   "rss_mb": 113.3515625,
+   "audio_ms": 8165.0,
+   "series": {
+    "runs_ms": [
+     527.7966000139713,
+     656.0230000177398,
+     802.8031999710947,
+     774.3119000224397,
+     769.6512999245897
+    ]
+   },
+   "transcript": "I replaced the transformer at pole 1 2 3. The old unit was leaking oil and I installed unit 4 5 6.",
+   "error": null
+  },
+  {
+   "engine_id": "foundry:stt:whisper-base:cpu",
+   "cold_start_ms": 2281.693600001745,
+   "rss_mb": 158.83984375,
+   "audio_ms": 8165.0,
+   "series": {
+    "runs_ms": [
+     1278.2581000356004,
+     1152.7360000181943,
+     1088.75909994822,
+     1125.4922000225633,
+     1295.3067000489682
+    ]
+   },
+   "transcript": "I replaced the transformer at pole 123. The old unit was leaking oil and I installed unit 456.",
+   "error": null
+  },
+  {
+   "engine_id": "foundry:stt:whisper-small:cpu",
+   "cold_start_ms": 3526.157700107433,
+   "rss_mb": 378.89453125,
+   "audio_ms": 8165.0,
+   "series": {
+    "runs_ms": [
+     3688.343600020744,
+     3485.671899979934,
+     3649.147400050424,
+     3879.318300052546,
+     3629.8063999274746
+    ]
+   },
+   "transcript": "I replaced the transformer at pole 1 2 3. The old unit was leaking oil and I installed unit 4 5 6.",
+   "error": null
+  },
+  {
+   "engine_id": "foundry:stt:whisper-medium:cpu",
+   "cold_start_ms": 4318.689699983224,
+   "rss_mb": 929.71484375,
+   "audio_ms": 8165.0,
+   "series": {
+    "runs_ms": [
+     9475.407000049017,
+     9359.214200056158,
+     8724.563600029796,
+     9526.129600009881,
+     9471.382599906065
+    ]
+   },
+   "transcript": "I replaced the transformer at pole 1-2-3. The old unit was leaking oil and I installed unit 4-5-6.",
+   "error": null
+  },
+  {
+   "engine_id": "foundry:stt:nemotron-speech-streaming-en-0.6b:cpu",
+   "cold_start_ms": 2175.6087000248954,
+   "rss_mb": 483.34375,
+   "audio_ms": 8165.0,
+   "series": {
+    "runs_ms": [
+     3915.457100025378,
+     3705.8924000011757,
+     3699.29839996621,
+     3752.5803999742493,
+     3465.676699997857
+    ]
+   },
+   "transcript": "I replaced the transformer at pole one two three. The old unit was leaking oil and I installed unit four five six",
+   "error": null
+  }
+ ],
+ "live": [
+  {
+   "engine_id": "foundry:stt:whisper-tiny:cpu",
+   "first_text_ms": {
+    "runs_ms": []
+   },
+   "tail_ms": {
+    "runs_ms": []
+   },
+   "transcript": "",
+   "note": "batch engine: the worker waits for the whole processing time above",
+   "error": null
+  },
+  {
+   "engine_id": "foundry:stt:whisper-base:cpu",
+   "first_text_ms": {
+    "runs_ms": []
+   },
+   "tail_ms": {
+    "runs_ms": []
+   },
+   "transcript": "",
+   "note": "batch engine: the worker waits for the whole processing time above",
+   "error": null
+  },
+  {
+   "engine_id": "foundry:stt:whisper-small:cpu",
+   "first_text_ms": {
+    "runs_ms": []
+   },
+   "tail_ms": {
+    "runs_ms": []
+   },
+   "transcript": "",
+   "note": "batch engine: the worker waits for the whole processing time above",
+   "error": null
+  },
+  {
+   "engine_id": "foundry:stt:whisper-medium:cpu",
+   "first_text_ms": {
+    "runs_ms": []
+   },
+   "tail_ms": {
+    "runs_ms": []
+   },
+   "transcript": "",
+   "note": "batch engine: the worker waits for the whole processing time above",
+   "error": null
+  },
+  {
+   "engine_id": "foundry:stt:nemotron-speech-streaming-en-0.6b:cpu",
+   "first_text_ms": {
+    "runs_ms": [
+     800.5987999495119,
+     700.4087999230251,
+     700.1362999435514,
+     800.5651000421494,
+     700.4492999985814
+    ]
+   },
+   "tail_ms": {
+    "runs_ms": [
+     186.84560002293438,
+     174.9650000128895,
+     239.49870001524687,
+     190.77850005123764,
+     215.33379994798452
+    ]
+   },
+   "transcript": "I replaced the transformer at pole one two three. The old unit was leaking oil and I installed unit four five six",
+   "note": null,
+   "error": null
+  }
+ ],
+ "llm": []
+}

@@ -1,0 +1,180 @@
+{
+ "profile": "dev-box-quiet",
+ "hardware": {
+  "cpu_name": "Intel(R) Core(TM) Ultra 7 165H",
+  "physical_cores": 16,
+  "logical_cores": 22,
+  "ram_gb": 63.6,
+  "os": "Windows 11",
+  "os_build": "10.0.26300",
+  "python_version": "3.11.9",
+  "device_profile": "dev-box-quiet",
+  "battery_present": true,
+  "notes": [
+   "Not a field-fleet device: results rank options only and are not representative of the Latitude 7220 (8th-gen U-series CPU, <=16 GB LPDDR3, no NPU).",
+   "This CPU has an NPU; auto-selected NPU variants may be used unless variants are pinned."
+  ]
+ },
+ "stt": [],
+ "live": [],
+ "llm": [
+  {
+   "engine_id": "foundry:llm:qwen2.5-1.5b:cpu",
+   "cold_start_ms": 7046.018799999729,
+   "rss_mb": 1377.1484375,
+   "calls": [
+    {
+     "label": "1 field, grammar",
+     "series": {
+      "runs_ms": [
+       2179.655999992974,
+       2592.680500005372,
+       2427.5309999939054,
+       2406.5318000502884,
+       2387.5973999965936
+      ]
+     },
+     "prompt_tokens": 134,
+     "output_tokens": 6,
+     "error": null
+    },
+    {
+     "label": "1 field, json schema",
+     "series": {
+      "runs_ms": [
+       2665.954599971883,
+       2498.1529000215232,
+       2720.610700082034,
+       2921.6268999734893,
+       2537.3885999433696
+      ]
+     },
+     "prompt_tokens": 134,
+     "output_tokens": 12,
+     "error": null
+    },
+    {
+     "label": "1 field, unconstrained",
+     "series": {
+      "runs_ms": [
+       3121.4830999961123,
+       2997.7500999812037,
+       3059.3871000455692,
+       3246.834499994293,
+       2944.1881999373436
+      ]
+     },
+     "prompt_tokens": 134,
+     "output_tokens": 25,
+     "error": null
+    },
+    {
+     "label": "3 fields, grammar",
+     "series": {
+      "runs_ms": [
+       3432.43170005735,
+       3457.6288999523968,
+       3320.919099962339,
+       3475.9991000173613,
+       3224.7769999084994
+      ]
+     },
+     "prompt_tokens": 168,
+     "output_tokens": 18,
+     "error": null
+    },
+    {
+     "label": "3 fields, json schema",
+     "series": {
+      "runs_ms": [
+       4018.805500003509,
+       3788.762699929066,
+       4177.3378000361845,
+       3781.2004999723285,
+       3712.967099971138
+      ]
+     },
+     "prompt_tokens": 168,
+     "output_tokens": 32,
+     "error": null
+    },
+    {
+     "label": "3 fields, unconstrained",
+     "series": {
+      "runs_ms": [
+       3652.6946000522003,
+       3702.467199997045,
+       3729.8532999120653,
+       3860.5724000371993,
+       3709.8104000324383
+      ]
+     },
+     "prompt_tokens": 168,
+     "output_tokens": 29,
+     "error": null
+    },
+    {
+     "label": "prefill: short prompt, 1 token out",
+     "series": {
+      "runs_ms": [
+       859.6725999377668,
+       828.0800000065938,
+       832.8994000330567,
+       833.1989999860525,
+       832.0107000181451
+      ]
+     },
+     "prompt_tokens": 52,
+     "output_tokens": 1,
+     "error": null
+    },
+    {
+     "label": "prefill: long prompt, 1 token out",
+     "series": {
+      "runs_ms": [
+       2705.0995000172406,
+       2572.799999965355,
+       2465.6910999910906,
+       2305.868199910037,
+       2612.6955999061465
+      ]
+     },
+     "prompt_tokens": 151,
+     "output_tokens": 1,
+     "error": null
+    },
+    {
+     "label": "decode: 1 token out",
+     "series": {
+      "runs_ms": [
+       577.2348999744281,
+       578.6025999113917,
+       588.9597999630496,
+       594.5071999449283,
+       570.1033000368625
+      ]
+     },
+     "prompt_tokens": 34,
+     "output_tokens": 1,
+     "error": null
+    },
+    {
+     "label": "decode: 64 tokens out",
+     "series": {
+      "runs_ms": [
+       2630.06310001947,
+       2679.4018000364304,
+       2548.9899999229237,
+       2510.3606999618933,
+       2553.533900063485
+      ]
+     },
+     "prompt_tokens": 34,
+     "output_tokens": 64,
+     "error": null
+    }
+   ],
+   "error": null
+  }
+ ]
+}

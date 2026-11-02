@@ -1,0 +1,386 @@
+{
+ "run_id": "20261030-192045-d88b89",
+ "label": "qwen0.5b heldout (dev box, shared CPU)",
+ "created_at": "2026-10-30T19:20:45Z",
+ "finished_at": "2026-10-30T19:40:38Z",
+ "dataset_id": "synth-v1",
+ "status": "succeeded",
+ "progress": 1.0,
+ "hardware": {
+  "cpu_name": "Intel(R) Core(TM) Ultra 7 165H",
+  "physical_cores": 16,
+  "logical_cores": 22,
+  "ram_gb": 63.6,
+  "os": "Windows 10",
+  "os_build": "10.0.26300",
+  "python_version": "3.11.9",
+  "device_profile": "dev-box-shared",
+  "battery_present": true,
+  "notes": [
+   "Not a field-fleet device: results rank options only and are not representative of the Latitude 7220 (8th-gen U-series CPU, <=16 GB LPDDR3, no NPU).",
+   "This CPU has an NPU; auto-selected NPU variants may be used unless variants are pinned."
+  ]
+ },
+ "request": {
+  "dataset_id": "synth-v1",
+  "configs": [
+   {
+    "stt_engine_id": "oracle:stt:transcript",
+    "llm_engine_id": "rules:llm:none",
+    "strategy_id": "rules_only"
+   },
+   {
+    "stt_engine_id": "oracle:stt:transcript",
+    "llm_engine_id": "foundry:llm:qwen2.5-0.5b:cpu",
+    "strategy_id": "hybrid"
+   },
+   {
+    "stt_engine_id": "oracle:stt:transcript",
+    "llm_engine_id": "foundry:llm:qwen2.5-0.5b:cpu",
+    "strategy_id": "hybrid_always"
+   },
+   {
+    "stt_engine_id": "oracle:stt:transcript",
+    "llm_engine_id": "foundry:llm:qwen2.5-0.5b:cpu",
+    "strategy_id": "enum_grammar"
+   }
+  ],
+  "limit": null,
+  "splits": [
+   "heldout"
+  ],
+  "tags": null,
+  "repeats": 1,
+  "warmup": 1,
+  "confidence_threshold": 0.8,
+  "label": "qwen0.5b heldout (dev box, shared CPU)"
+ },
+ "configs": [
+  {
+   "config_key": "oracle:stt:transcript|rules:llm:none|rules_only",
+   "config": {
+    "stt_engine_id": "oracle:stt:transcript",
+    "llm_engine_id": "rules:llm:none",
+    "strategy_id": "rules_only"
+   },
+   "n_cases": 63,
+   "n_errors": 0,
+   "wer": null,
+   "wer_normalized": null,
+   "id_exact_match": null,
+   "rtf": null,
+   "field_accuracy": 0.817174515235457,
+   "id_field_accuracy": 1.0,
+   "accuracy_by_type": {
+    "enum": 0.37735849056603776,
+    "entity_ref": 1.0,
+    "boolean": 1.0,
+    "number": 1.0
+   },
+   "accuracy_by_tag": {
+    "colloquial": 0.7828947368421053,
+    "digits": 0.8097165991902834,
+    "nato": 0.8333333333333334,
+    "grouped": 0.8230088495575221,
+    "noisy": 0.8545454545454545,
+    "noise_wind": 0.8666666666666667,
+    "snr_15": 0.8064516129032258,
+    "noise_muffled": 0.9090909090909091,
+    "snr_20": 0.8571428571428571,
+    "clean": 0.8080808080808081,
+    "noise_engine": 0.8333333333333334,
+    "reverb": 0.8666666666666667,
+    "noise_crackle": 0.7894736842105263,
+    "noise_pink": 0.8421052631578947,
+    "snr_5": 0.8947368421052632,
+    "noise_white": 0.8333333333333334,
+    "snr_10": 0.8
+   },
+   "form_exact_match": 0.2222222222222222,
+   "silent_wrong_rate": 0.0,
+   "hallucination_rate": 0.0,
+   "review_rate": 0.038781163434903045,
+   "safe_outcome_rate": 0.817174515235457,
+   "schema_valid_rate": null,
+   "latency_total": {
+    "n": 63,
+    "mean": 0.9350888874559176,
+    "p50": 0.6235998589545488,
+    "p95": 1.102960016578436,
+    "max": 17.772899940609932
+   },
+   "latency_stt": {
+    "n": 0,
+    "mean": null,
+    "p50": null,
+    "p95": null,
+    "max": null
+   },
+   "latency_extract": {
+    "n": 63,
+    "mean": 0.9350888874559176,
+    "p50": 0.6235998589545488,
+    "p95": 1.102960016578436,
+    "max": 17.772899940609932
+   },
+   "latency_llm": {
+    "n": 0,
+    "mean": null,
+    "p50": null,
+    "p95": null,
+    "max": null
+   },
+   "llm_prompt_tokens_mean": null,
+   "llm_output_tokens_mean": null,
+   "cold_start_ms": null,
+   "peak_rss_mb": 0.84765625,
+   "model_size_mb": null
+  },
+  {
+   "config_key": "oracle:stt:transcript|foundry:llm:qwen2.5-0.5b:cpu|hybrid",
+   "config": {
+    "stt_engine_id": "oracle:stt:transcript",
+    "llm_engine_id": "foundry:llm:qwen2.5-0.5b:cpu",
+    "strategy_id": "hybrid"
+   },
+   "n_cases": 63,
+   "n_errors": 0,
+   "wer": null,
+   "wer_normalized": null,
+   "id_exact_match": null,
+   "rtf": null,
+   "field_accuracy": 0.7063711911357341,
+   "id_field_accuracy": 1.0,
+   "accuracy_by_type": {
+    "enum": 0.3490566037735849,
+    "entity_ref": 1.0,
+    "boolean": 0.4126984126984127,
+    "number": 1.0
+   },
+   "accuracy_by_tag": {
+    "colloquial": 0.6644736842105263,
+    "digits": 0.6963562753036437,
+    "nato": 0.8055555555555556,
+    "grouped": 0.672566371681416,
+    "noisy": 0.7363636363636363,
+    "noise_wind": 0.8666666666666667,
+    "snr_15": 0.6774193548387096,
+    "noise_muffled": 0.7272727272727273,
+    "snr_20": 0.75,
+    "clean": 0.6767676767676768,
+    "noise_engine": 0.75,
+    "reverb": 0.7333333333333333,
+    "noise_crackle": 0.631578947368421,
+    "noise_pink": 0.6842105263157895,
+    "snr_5": 0.6842105263157895,
+    "noise_white": 0.6666666666666666,
+    "snr_10": 0.8
+   },
+   "form_exact_match": 0.14285714285714285,
+   "silent_wrong_rate": 0.0,
+   "hallucination_rate": 0.23626373626373626,
+   "review_rate": 0.20498614958448755,
+   "safe_outcome_rate": 0.8642659279778393,
+   "schema_valid_rate": 1.0,
+   "latency_total": {
+    "n": 63,
+    "mean": 4535.062349205541,
+    "p50": 5182.642500032671,
+    "p95": 7487.510020053014,
+    "max": 9993.256399873644
+   },
+   "latency_stt": {
+    "n": 0,
+    "mean": null,
+    "p50": null,
+    "p95": null,
+    "max": null
+   },
+   "latency_extract": {
+    "n": 63,
+    "mean": 4535.062349205541,
+    "p50": 5182.642500032671,
+    "p95": 7487.510020053014,
+    "max": 9993.256399873644
+   },
+   "latency_llm": {
+    "n": 52,
+    "mean": 5491.097399996272,
+    "p50": 5446.232750022318,
+    "p95": 7501.7815500323195,
+    "max": 9991.853699903004
+   },
+   "llm_prompt_tokens_mean": 125.65384615384616,
+   "llm_output_tokens_mean": 14.76923076923077,
+   "cold_start_ms": 11495.867699966766,
+   "peak_rss_mb": 771.48828125,
+   "model_size_mb": 822.0
+  },
+  {
+   "config_key": "oracle:stt:transcript|foundry:llm:qwen2.5-0.5b:cpu|hybrid_always",
+   "config": {
+    "stt_engine_id": "oracle:stt:transcript",
+    "llm_engine_id": "foundry:llm:qwen2.5-0.5b:cpu",
+    "strategy_id": "hybrid_always"
+   },
+   "n_cases": 63,
+   "n_errors": 0,
+   "wer": null,
+   "wer_normalized": null,
+   "id_exact_match": null,
+   "rtf": null,
+   "field_accuracy": 0.7008310249307479,
+   "id_field_accuracy": 1.0,
+   "accuracy_by_type": {
+    "enum": 0.3490566037735849,
+    "entity_ref": 1.0,
+    "boolean": 0.38095238095238093,
+    "number": 1.0
+   },
+   "accuracy_by_tag": {
+    "colloquial": 0.6611842105263158,
+    "digits": 0.6963562753036437,
+    "nato": 0.7777777777777778,
+    "grouped": 0.6637168141592921,
+    "noisy": 0.7363636363636363,
+    "noise_wind": 0.8666666666666667,
+    "snr_15": 0.6774193548387096,
+    "noise_muffled": 0.7272727272727273,
+    "snr_20": 0.75,
+    "clean": 0.6767676767676768,
+    "noise_engine": 0.75,
+    "reverb": 0.7333333333333333,
+    "noise_crackle": 0.631578947368421,
+    "noise_pink": 0.6842105263157895,
+    "snr_5": 0.6842105263157895,
+    "noise_white": 0.6666666666666666,
+    "snr_10": 0.8
+   },
+   "form_exact_match": 0.12698412698412698,
+   "silent_wrong_rate": 0.0,
+   "hallucination_rate": 0.24725274725274726,
+   "review_rate": 0.21052631578947367,
+   "safe_outcome_rate": 0.8642659279778393,
+   "schema_valid_rate": 1.0,
+   "latency_total": {
+    "n": 63,
+    "mean": 4164.099630177213,
+    "p50": 3762.11589993909,
+    "p95": 6906.902249937411,
+    "max": 7734.206199995242
+   },
+   "latency_stt": {
+    "n": 0,
+    "mean": null,
+    "p50": null,
+    "p95": null,
+    "max": null
+   },
+   "latency_extract": {
+    "n": 63,
+    "mean": 4164.099630177213,
+    "p50": 3762.11589993909,
+    "p95": 6906.902249937411,
+    "max": 7734.206199995242
+   },
+   "latency_llm": {
+    "n": 63,
+    "mean": 4162.260193660456,
+    "p50": 3761.124899960123,
+    "p95": 6902.528979966883,
+    "max": 7730.367299984209
+   },
+   "llm_prompt_tokens_mean": 122.9047619047619,
+   "llm_output_tokens_mean": 14.34920634920635,
+   "cold_start_ms": 10041.665100026876,
+   "peak_rss_mb": 717.75,
+   "model_size_mb": 822.0
+  },
+  {
+   "config_key": "oracle:stt:transcript|foundry:llm:qwen2.5-0.5b:cpu|enum_grammar",
+   "config": {
+    "stt_engine_id": "oracle:stt:transcript",
+    "llm_engine_id": "foundry:llm:qwen2.5-0.5b:cpu",
+    "strategy_id": "enum_grammar"
+   },
+   "n_cases": 63,
+   "n_errors": 0,
+   "wer": null,
+   "wer_normalized": null,
+   "id_exact_match": null,
+   "rtf": null,
+   "field_accuracy": 0.4626038781163435,
+   "id_field_accuracy": 0.4263565891472868,
+   "accuracy_by_type": {
+    "enum": 0.1792452830188679,
+    "entity_ref": 0.4263565891472868,
+    "boolean": 0.49206349206349204,
+    "number": 0.9841269841269841
+   },
+   "accuracy_by_tag": {
+    "colloquial": 0.45394736842105265,
+    "digits": 0.4777327935222672,
+    "nato": 0.4166666666666667,
+    "grouped": 0.39823008849557523,
+    "noisy": 0.45454545454545453,
+    "noise_wind": 0.6,
+    "snr_15": 0.41935483870967744,
+    "noise_muffled": 0.2727272727272727,
+    "snr_20": 0.4642857142857143,
+    "clean": 0.41414141414141414,
+    "noise_engine": 0.5,
+    "reverb": 0.4444444444444444,
+    "noise_crackle": 0.42105263157894735,
+    "noise_pink": 0.42105263157894735,
+    "snr_5": 0.3157894736842105,
+    "noise_white": 0.5,
+    "snr_10": 0.8
+   },
+   "form_exact_match": 0.0,
+   "silent_wrong_rate": 0.6506024096385542,
+   "hallucination_rate": 0.4010989010989011,
+   "review_rate": 0.0,
+   "safe_outcome_rate": 0.4626038781163435,
+   "schema_valid_rate": 1.0,
+   "latency_total": {
+    "n": 63,
+    "mean": 8829.601112706956,
+    "p50": 6029.803100042045,
+    "p95": 19436.821340036113,
+    "max": 21230.126600014046
+   },
+   "latency_stt": {
+    "n": 0,
+    "mean": null,
+    "p50": null,
+    "p95": null,
+    "max": null
+   },
+   "latency_extract": {
+    "n": 63,
+    "mean": 8829.601112706956,
+    "p50": 6029.803100042045,
+    "p95": 19436.821340036113,
+    "max": 21230.126600014046
+   },
+   "latency_llm": {
+    "n": 63,
+    "mean": 8829.150411117424,
+    "p50": 6029.317800072022,
+    "p95": 19436.13976999186,
+    "max": 21229.364000028
+   },
+   "llm_prompt_tokens_mean": 178.82539682539684,
+   "llm_output_tokens_mean": 35.857142857142854,
+   "cold_start_ms": 15612.360600032844,
+   "peak_rss_mb": 779.70703125,
+   "model_size_mb": 822.0
+  }
+ ],
+ "notes": [
+  "Peak RAM is the estimated resident footprint of the models (delta over the process baseline), STT and LLM phases summed.",
+  "Latency excludes one-off model load (reported as cold start).",
+  "Not a field-fleet device: results rank options only and are not representative of the Latitude 7220 (8th-gen U-series CPU, <=16 GB LPDDR3, no NPU).",
+  "This CPU has an NPU; auto-selected NPU variants may be used unless variants are pinned."
+ ]
+}

@@ -1,0 +1,11 @@
+# Optional engines. Install only what you need; engines report "unavailable" when their package is missing.
+
+# Azure Speech cloud reference engine (NOT offline). Install ONE of the two azure packages, never both.
+# azure-cognitiveservices-speech>=1.40
+
+# Azure Speech embedded (on-device) engine. Requires limited-access approval, Windows 11+, x64/Arm64.
+# https://aka.ms/csgate-embedded-speech
+# azure-cognitiveservices-speech-embedded>=1.51
+
+# ONNX Runtime GenAI direct engine (bring-your-own ONNX models, prefix reuse experiments).
+# onnxruntime-genai>=0.11

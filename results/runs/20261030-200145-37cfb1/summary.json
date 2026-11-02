@@ -1,0 +1,127 @@
+{
+ "run_id": "20261030-200145-37cfb1",
+ "label": "demo-rules-oracle",
+ "created_at": "2026-10-30T20:01:45Z",
+ "finished_at": "2026-10-30T20:01:45Z",
+ "dataset_id": "demo-script",
+ "status": "succeeded",
+ "progress": 1.0,
+ "hardware": {
+  "cpu_name": "Intel(R) Core(TM) Ultra 7 165H",
+  "physical_cores": 16,
+  "logical_cores": 22,
+  "ram_gb": 63.6,
+  "os": "Windows 10",
+  "os_build": "10.0.26300",
+  "python_version": "3.11.9",
+  "device_profile": "dev-box",
+  "battery_present": true,
+  "notes": [
+   "Not a field-fleet device: results rank options only and are not representative of the Latitude 7220 (8th-gen U-series CPU, <=16 GB LPDDR3, no NPU).",
+   "This CPU has an NPU; auto-selected NPU variants may be used unless variants are pinned."
+  ]
+ },
+ "request": {
+  "dataset_id": "demo-script",
+  "configs": [
+   {
+    "stt_engine_id": "oracle:stt:transcript",
+    "llm_engine_id": "rules:llm:none",
+    "strategy_id": "rules_only"
+   }
+  ],
+  "limit": null,
+  "splits": null,
+  "tags": null,
+  "repeats": 1,
+  "warmup": 0,
+  "confidence_threshold": 0.8,
+  "label": "demo-rules-oracle"
+ },
+ "configs": [
+  {
+   "config_key": "oracle:stt:transcript|rules:llm:none|rules_only",
+   "config": {
+    "stt_engine_id": "oracle:stt:transcript",
+    "llm_engine_id": "rules:llm:none",
+    "strategy_id": "rules_only"
+   },
+   "n_cases": 11,
+   "n_errors": 0,
+   "wer": null,
+   "wer_normalized": null,
+   "id_exact_match": null,
+   "rtf": null,
+   "field_accuracy": 0.9452054794520548,
+   "id_field_accuracy": 1.0,
+   "accuracy_by_type": {
+    "enum": 0.8181818181818182,
+    "entity_ref": 1.0,
+    "boolean": 1.0,
+    "number": 1.0
+   },
+   "accuracy_by_tag": {
+    "clean": 0.9393939393939394,
+    "demo": 0.9452054794520548,
+    "digits": 0.9591836734693877,
+    "headline": 1.0,
+    "grouped": 1.0,
+    "nato": 0.9166666666666666,
+    "correction": 1.0,
+    "colloquial": 0.6666666666666666,
+    "distractor": 1.0,
+    "negation": 1.0,
+    "missing_required": 1.0,
+    "number": 1.0,
+    "noise_engine": 1.0,
+    "noisy": 1.0,
+    "snr_10": 1.0
+   },
+   "form_exact_match": 0.8181818181818182,
+   "silent_wrong_rate": 0.0,
+   "hallucination_rate": 0.0,
+   "review_rate": 0.0,
+   "safe_outcome_rate": 0.9452054794520548,
+   "schema_valid_rate": null,
+   "latency_total": {
+    "n": 11,
+    "mean": 0.814818184484135,
+    "p50": 0.8204999612644315,
+    "p95": 1.8631501588970423,
+    "max": 2.514400170184672
+   },
+   "latency_stt": {
+    "n": 0,
+    "mean": null,
+    "p50": null,
+    "p95": null,
+    "max": null
+   },
+   "latency_extract": {
+    "n": 11,
+    "mean": 0.814818184484135,
+    "p50": 0.8204999612644315,
+    "p95": 1.8631501588970423,
+    "max": 2.514400170184672
+   },
+   "latency_llm": {
+    "n": 0,
+    "mean": null,
+    "p50": null,
+    "p95": null,
+    "max": null
+   },
+   "llm_prompt_tokens_mean": null,
+   "llm_output_tokens_mean": null,
+   "cold_start_ms": null,
+   "peak_rss_mb": 0.09765625,
+   "model_size_mb": null
+  }
+ ],
+ "notes": [
+  "Peak RAM is the estimated resident footprint of the models (delta over the process baseline), STT and LLM phases summed.",
+  "Latency excludes one-off model load (reported as cold start).",
+  "Not a field-fleet device: results rank options only and are not representative of the Latitude 7220 (8th-gen U-series CPU, <=16 GB LPDDR3, no NPU).",
+  "This CPU has an NPU; auto-selected NPU variants may be used unless variants are pinned."
+ ]
+}

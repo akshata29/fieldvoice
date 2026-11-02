@@ -1,0 +1,22 @@
+# Line endings: LF inside the repository, the platform's native endings in your working tree.
+* text=auto
+
+# Windows batch files must stay CRLF on every platform; shell scripts must stay LF.
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.sh  text eol=lf
+
+# Binary files: never convert or diff them as text.
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.ico  binary
+*.wav  binary
+*.onnx binary
+*.bin  binary
+
+# GitHub: keep generated files out of language statistics and collapse them in diffs.
+ios-spike/golden/golden_vectors.json linguist-generated=true
+frontend/package-lock.json           linguist-generated=true
+results/**                           linguist-generated=true

@@ -1,0 +1,1603 @@
+{
+ "assets": [
+  {
+   "attributes": {},
+   "id": "123",
+   "kind": "pole",
+   "label": "Pole 123",
+   "location": null
+  },
+  {
+   "attributes": {},
+   "id": "132",
+   "kind": "pole",
+   "label": "Pole 132",
+   "location": null
+  },
+  {
+   "attributes": {},
+   "id": "A77",
+   "kind": "pole",
+   "label": "Pole A77",
+   "location": null
+  },
+  {
+   "attributes": {
+    "parent_pole": "123"
+   },
+   "id": "T9921",
+   "kind": "transformer",
+   "label": "Transformer T9921",
+   "location": null
+  },
+  {
+   "attributes": {},
+   "id": "456",
+   "kind": "stock_unit",
+   "label": "Stock unit 456",
+   "location": null
+  },
+  {
+   "attributes": {},
+   "id": "465",
+   "kind": "stock_unit",
+   "label": "Stock unit 465",
+   "location": null
+  },
+  {
+   "attributes": {},
+   "id": "789",
+   "kind": "stock_unit",
+   "label": "Stock unit 789",
+   "location": null
+  }
+ ],
+ "form": {
+  "description": null,
+  "fields": [
+   {
+    "entity_kind": null,
+    "fill_from_transcript": false,
+    "help": null,
+    "key": "work_performed",
+    "label": "Work performed",
+    "label_triggers": [],
+    "max_length": 400,
+    "max_value": null,
+    "min_value": null,
+    "options": [
+     {
+      "code": "transformer_replacement",
+      "label": "Transformer replacement",
+      "synonyms": [
+       "replaced the transformer",
+       "transformer replacement",
+       "swapped the transformer",
+       "changed out the transformer",
+       "installed a new transformer"
+      ]
+     },
+     {
+      "code": "transformer_repair",
+      "label": "Transformer repair",
+      "synonyms": [
+       "repaired the transformer",
+       "transformer repair",
+       "fixed the transformer"
+      ]
+     },
+     {
+      "code": "pole_inspection",
+      "label": "Pole inspection",
+      "synonyms": [
+       "inspected the pole",
+       "pole inspection",
+       "checked the pole"
+      ]
+     }
+    ],
+    "required": true,
+    "required_when": null,
+    "role_triggers": [],
+    "true_triggers": [],
+    "type": "enum",
+    "unit": null,
+    "unit_triggers": []
+   },
+   {
+    "entity_kind": "pole",
+    "fill_from_transcript": false,
+    "help": null,
+    "key": "pole_id",
+    "label": "Pole",
+    "label_triggers": [],
+    "max_length": 400,
+    "max_value": null,
+    "min_value": null,
+    "options": [],
+    "required": true,
+    "required_when": null,
+    "role_triggers": [
+     "pole"
+    ],
+    "true_triggers": [],
+    "type": "entity_ref",
+    "unit": null,
+    "unit_triggers": []
+   },
+   {
+    "entity_kind": "transformer",
+    "fill_from_transcript": false,
+    "help": null,
+    "key": "removed_unit",
+    "label": "Removed unit",
+    "label_triggers": [],
+    "max_length": 400,
+    "max_value": null,
+    "min_value": null,
+    "options": [],
+    "required": false,
+    "required_when": null,
+    "role_triggers": [
+     "old unit",
+     "removed unit",
+     "existing unit",
+     "pulled unit",
+     "old transformer"
+    ],
+    "true_triggers": [],
+    "type": "entity_ref",
+    "unit": null,
+    "unit_triggers": []
+   },
+   {
+    "entity_kind": "stock_unit",
+    "fill_from_transcript": false,
+    "help": null,
+    "key": "replacement_unit",
+    "label": "Replacement unit",
+    "label_triggers": [],
+    "max_length": 400,
+    "max_value": null,
+    "min_value": null,
+    "options": [],
+    "required": false,
+    "required_when": {
+     "work_performed": "transformer_replacement"
+    },
+    "role_triggers": [
+     "installed",
+     "new unit",
+     "replacement unit",
+     "put in",
+     "swapped in"
+    ],
+    "true_triggers": [],
+    "type": "entity_ref",
+    "unit": null,
+    "unit_triggers": []
+   },
+   {
+    "entity_kind": null,
+    "fill_from_transcript": false,
+    "help": null,
+    "key": "condition_found",
+    "label": "Condition found",
+    "label_triggers": [],
+    "max_length": 400,
+    "max_value": null,
+    "min_value": null,
+    "options": [
+     {
+      "code": "oil_leak",
+      "label": "Oil leak",
+      "synonyms": [
+       "oil leak",
+       "leaking oil",
+       "leaked oil",
+       "oil leaking",
+       "leaking"
+      ]
+     },
+     {
+      "code": "corrosion",
+      "label": "Corrosion",
+      "synonyms": [
+       "corrosion",
+       "corroded",
+       "rust"
+      ]
+     },
+     {
+      "code": "damage",
+      "label": "Physical damage",
+      "synonyms": [
+       "damaged",
+       "cracked",
+       "damage"
+      ]
+     },
+     {
+      "code": "overheating",
+      "label": "Overheating",
+      "synonyms": [
+       "overheating",
+       "overheated",
+       "burnt"
+      ]
+     },
+     {
+      "code": "none",
+      "label": "No issues",
+      "synonyms": [
+       "no issues",
+       "no problems",
+       "looked fine"
+      ]
+     }
+    ],
+    "required": false,
+    "required_when": null,
+    "role_triggers": [],
+    "true_triggers": [],
+    "type": "enum",
+    "unit": null,
+    "unit_triggers": []
+   },
+   {
+    "entity_kind": null,
+    "fill_from_transcript": false,
+    "help": null,
+    "key": "customer_notified",
+    "label": "Customer notified",
+    "label_triggers": [],
+    "max_length": 400,
+    "max_value": null,
+    "min_value": null,
+    "options": [],
+    "required": false,
+    "required_when": null,
+    "role_triggers": [],
+    "true_triggers": [
+     "customer notified",
+     "notified the customer",
+     "informed the customer",
+     "customer was notified"
+    ],
+    "type": "boolean",
+    "unit": null,
+    "unit_triggers": []
+   },
+   {
+    "entity_kind": null,
+    "fill_from_transcript": false,
+    "help": null,
+    "key": "kva_rating",
+    "label": "kVA rating",
+    "label_triggers": [
+     "rating",
+     "rated"
+    ],
+    "max_length": 400,
+    "max_value": 500.0,
+    "min_value": 5.0,
+    "options": [],
+    "required": false,
+    "required_when": null,
+    "role_triggers": [],
+    "true_triggers": [],
+    "type": "number",
+    "unit": "kVA",
+    "unit_triggers": [
+     "kva"
+    ]
+   },
+   {
+    "entity_kind": null,
+    "fill_from_transcript": true,
+    "help": null,
+    "key": "notes",
+    "label": "Notes",
+    "label_triggers": [],
+    "max_length": 400,
+    "max_value": null,
+    "min_value": null,
+    "options": [],
+    "required": false,
+    "required_when": null,
+    "role_triggers": [],
+    "true_triggers": [],
+    "type": "text",
+    "unit": null,
+    "unit_triggers": []
+   }
+  ],
+  "id": "transformer_replacement",
+  "title": "Transformer replacement",
+  "version": 1,
+  "work_type": "transformer_replacement"
+ },
+ "generated_by": "python -m backend.evalkit.golden_vectors",
+ "llm_prompts": [
+  {
+   "response_format": null,
+   "strategy": "free_json",
+   "system": "You are an assistant that fills out utility field work-order forms. Return only JSON.",
+   "transcript": "I replaced the transformer at pole 123. The old unit was leaking oil and I installed unit 456.",
+   "user": "Form: Transformer replacement\nFill in the form fields from the technician's statement. Use null when a field is not mentioned.\nFields:\n- work_performed (Work performed): one of transformer_replacement (Transformer replacement), transformer_repair (Transformer repair), pole_inspection (Pole inspection)\n- pole_id (Pole): asset id as a string\n- removed_unit (Removed unit): asset id as a string\n- replacement_unit (Replacement unit): asset id as a string\n- condition_found (Condition found): one of oil_leak (Oil leak), corrosion (Corrosion), damage (Physical damage), overheating (Overheating), none (No issues)\n- customer_notified (Customer notified): true or false\n- kva_rating (kVA rating): number in kVA\n- notes (Notes): short text\nTechnician statement: \"I replaced the transformer at pole 123. The old unit was leaking oil and I installed unit 456.\"\nReturn a JSON object with exactly these keys: work_performed, pole_id, removed_unit, replacement_unit, condition_found, customer_notified, kva_rating, notes."
+  },
+  {
+   "response_format": {
+    "lark_grammar": "start: \"{\" f0 \",\" f1 \",\" f2 \",\" f3 \",\" f4 \",\" f5 \",\" f6 \"}\"\nf0: \"\\\"work_performed\\\":\" v0\nv0: \"\\\"transformer_replacement\\\"\" | \"\\\"transformer_repair\\\"\" | \"\\\"pole_inspection\\\"\" | \"null\"\nf1: \"\\\"pole_id\\\":\" v1\nv1: \"\\\"123\\\"\" | \"\\\"456\\\"\" | \"null\"\nf2: \"\\\"removed_unit\\\":\" v2\nv2: \"\\\"123\\\"\" | \"\\\"456\\\"\" | \"null\"\nf3: \"\\\"replacement_unit\\\":\" v3\nv3: \"\\\"123\\\"\" | \"\\\"456\\\"\" | \"null\"\nf4: \"\\\"condition_found\\\":\" v4\nv4: \"\\\"oil_leak\\\"\" | \"\\\"corrosion\\\"\" | \"\\\"damage\\\"\" | \"\\\"overheating\\\"\" | \"\\\"none\\\"\" | \"null\"\nf5: \"\\\"customer_notified\\\":\" v5\nv5: \"true\" | \"false\" | \"null\"\nf6: \"\\\"kva_rating\\\":\" v6\nv6: /-?[0-9]{1,6}(\\.[0-9]{1,3})?/ | \"null\"",
+    "type": "lark_grammar"
+   },
+   "strategy": "enum_grammar",
+   "system": "You fill part of a utility work-order form from a technician's spoken statement. Reply with ONE JSON object containing exactly the requested keys. Use null for anything the statement does not say. Never guess. Use only the allowed values.",
+   "transcript": "I replaced the transformer at pole 123. The old unit was leaking oil and I installed unit 456.",
+   "user": "Statement: \"i replaced the transformer at pole 123. the old unit was leaking oil and i installed unit 456.\"\nFields:\n- work_performed: transformer_replacement | transformer_repair | pole_inspection\n- pole_id: one of [123, 456] or null\n- removed_unit: one of [123, 456] or null\n- replacement_unit: one of [123, 456] or null\n- condition_found: oil_leak | corrosion | damage | overheating | none\n- customer_notified: true | false | null\n- kva_rating: number (kVA) or null\nJSON:"
+  },
+  {
+   "response_format": null,
+   "strategy": "free_json",
+   "system": "You are an assistant that fills out utility field work-order forms. Return only JSON.",
+   "transcript": "Replaced the transformer at pole 123, the old unit was weeping badly, installed unit 456.",
+   "user": "Form: Transformer replacement\nFill in the form fields from the technician's statement. Use null when a field is not mentioned.\nFields:\n- work_performed (Work performed): one of transformer_replacement (Transformer replacement), transformer_repair (Transformer repair), pole_inspection (Pole inspection)\n- pole_id (Pole): asset id as a string\n- removed_unit (Removed unit): asset id as a string\n- replacement_unit (Replacement unit): asset id as a string\n- condition_found (Condition found): one of oil_leak (Oil leak), corrosion (Corrosion), damage (Physical damage), overheating (Overheating), none (No issues)\n- customer_notified (Customer notified): true or false\n- kva_rating (kVA rating): number in kVA\n- notes (Notes): short text\nTechnician statement: \"Replaced the transformer at pole 123, the old unit was weeping badly, installed unit 456.\"\nReturn a JSON object with exactly these keys: work_performed, pole_id, removed_unit, replacement_unit, condition_found, customer_notified, kva_rating, notes."
+  },
+  {
+   "response_format": {
+    "lark_grammar": "start: \"{\" f0 \",\" f1 \",\" f2 \",\" f3 \",\" f4 \",\" f5 \",\" f6 \"}\"\nf0: \"\\\"work_performed\\\":\" v0\nv0: \"\\\"transformer_replacement\\\"\" | \"\\\"transformer_repair\\\"\" | \"\\\"pole_inspection\\\"\" | \"null\"\nf1: \"\\\"pole_id\\\":\" v1\nv1: \"\\\"123\\\"\" | \"\\\"456\\\"\" | \"null\"\nf2: \"\\\"removed_unit\\\":\" v2\nv2: \"\\\"123\\\"\" | \"\\\"456\\\"\" | \"null\"\nf3: \"\\\"replacement_unit\\\":\" v3\nv3: \"\\\"123\\\"\" | \"\\\"456\\\"\" | \"null\"\nf4: \"\\\"condition_found\\\":\" v4\nv4: \"\\\"oil_leak\\\"\" | \"\\\"corrosion\\\"\" | \"\\\"damage\\\"\" | \"\\\"overheating\\\"\" | \"\\\"none\\\"\" | \"null\"\nf5: \"\\\"customer_notified\\\":\" v5\nv5: \"true\" | \"false\" | \"null\"\nf6: \"\\\"kva_rating\\\":\" v6\nv6: /-?[0-9]{1,6}(\\.[0-9]{1,3})?/ | \"null\"",
+    "type": "lark_grammar"
+   },
+   "strategy": "enum_grammar",
+   "system": "You fill part of a utility work-order form from a technician's spoken statement. Reply with ONE JSON object containing exactly the requested keys. Use null for anything the statement does not say. Never guess. Use only the allowed values.",
+   "transcript": "Replaced the transformer at pole 123, the old unit was weeping badly, installed unit 456.",
+   "user": "Statement: \"replaced the transformer at pole 123, the old unit was weeping badly, installed unit 456.\"\nFields:\n- work_performed: transformer_replacement | transformer_repair | pole_inspection\n- pole_id: one of [123, 456] or null\n- removed_unit: one of [123, 456] or null\n- replacement_unit: one of [123, 456] or null\n- condition_found: oil_leak | corrosion | damage | overheating | none\n- customer_notified: true | false | null\n- kva_rating: number (kVA) or null\nJSON:"
+  },
+  {
+   "response_format": {
+    "lark_grammar": "start: \"{\" f0 \"}\"\nf0: \"\\\"condition_found\\\":{\\\"mentioned\\\":\" b0 \",\\\"value\\\":\" v0 \"}\"\nb0: \"true\" | \"false\"\nv0: \"\\\"oil_leak\\\"\" | \"\\\"corrosion\\\"\" | \"\\\"damage\\\"\" | \"\\\"overheating\\\"\" | \"\\\"none\\\"\"",
+    "type": "lark_grammar"
+   },
+   "strategy": "hybrid",
+   "system": "You read a technician's spoken statement about a utility job and fill part of a work-order form. For each requested field say whether the statement mentions it, even in everyday or slang words, and which allowed value is closest in meaning. Reply with ONE JSON object containing exactly the requested keys.",
+   "transcript": "Replaced the transformer at pole 123, the old unit was weeping badly, installed unit 456.",
+   "user": "Statement: \"replaced the transformer at pole 123, the old unit was weeping badly, installed unit 456.\"\nFields:\n- condition_found: mentioned true|false; value oil_leak | corrosion | damage | overheating | none\nJSON:"
+  },
+  {
+   "response_format": {
+    "lark_grammar": "start: \"{\" f0 \"}\"\nf0: \"\\\"condition_found\\\":{\\\"mentioned\\\":\" b0 \",\\\"value\\\":\" v0 \"}\"\nb0: \"true\" | \"false\"\nv0: \"\\\"oil_leak\\\"\" | \"\\\"corrosion\\\"\" | \"\\\"damage\\\"\" | \"\\\"overheating\\\"\" | \"\\\"none\\\"\"",
+    "type": "lark_grammar"
+   },
+   "strategy": "hybrid_always",
+   "system": "You read a technician's spoken statement about a utility job and fill part of a work-order form. For each requested field say whether the statement mentions it, even in everyday or slang words, and which allowed value is closest in meaning. Reply with ONE JSON object containing exactly the requested keys.",
+   "transcript": "Replaced the transformer at pole 123, the old unit was weeping badly, installed unit 456.",
+   "user": "Statement: \"replaced the transformer at pole 123, the old unit was weeping badly, installed unit 456.\"\nFields:\n- condition_found: mentioned true|false; value oil_leak | corrosion | damage | overheating | none\nJSON:"
+  }
+ ],
+ "normalizer": [
+  {
+   "clean": "I replaced the transformer at pole 123.",
+   "raw": "I replaced the transformer at pole 123.",
+   "text": "i replaced the transformer at pole 123.",
+   "tokens": [
+    {
+     "end": 1,
+     "kind": "word",
+     "start": 0,
+     "text": "i",
+     "value": null
+    },
+    {
+     "end": 10,
+     "kind": "word",
+     "start": 2,
+     "text": "replaced",
+     "value": null
+    },
+    {
+     "end": 14,
+     "kind": "word",
+     "start": 11,
+     "text": "the",
+     "value": null
+    },
+    {
+     "end": 26,
+     "kind": "word",
+     "start": 15,
+     "text": "transformer",
+     "value": null
+    },
+    {
+     "end": 29,
+     "kind": "word",
+     "start": 27,
+     "text": "at",
+     "value": null
+    },
+    {
+     "end": 34,
+     "kind": "word",
+     "start": 30,
+     "text": "pole",
+     "value": null
+    },
+    {
+     "end": 38,
+     "kind": "num",
+     "start": 35,
+     "text": "123",
+     "value": "123"
+    },
+    {
+     "end": 39,
+     "kind": "punct",
+     "start": 38,
+     "text": ".",
+     "value": null
+    }
+   ]
+  },
+  {
+   "clean": "I replaced the transformer at pole 1 2 3.",
+   "raw": "I replaced the transformer at pole 1 2 3.",
+   "text": "i replaced the transformer at pole 123.",
+   "tokens": [
+    {
+     "end": 1,
+     "kind": "word",
+     "start": 0,
+     "text": "i",
+     "value": null
+    },
+    {
+     "end": 10,
+     "kind": "word",
+     "start": 2,
+     "text": "replaced",
+     "value": null
+    },
+    {
+     "end": 14,
+     "kind": "word",
+     "start": 11,
+     "text": "the",
+     "value": null
+    },
+    {
+     "end": 26,
+     "kind": "word",
+     "start": 15,
+     "text": "transformer",
+     "value": null
+    },
+    {
+     "end": 29,
+     "kind": "word",
+     "start": 27,
+     "text": "at",
+     "value": null
+    },
+    {
+     "end": 34,
+     "kind": "word",
+     "start": 30,
+     "text": "pole",
+     "value": null
+    },
+    {
+     "end": 38,
+     "kind": "num",
+     "start": 35,
+     "text": "123",
+     "value": "123"
+    },
+    {
+     "end": 39,
+     "kind": "punct",
+     "start": 38,
+     "text": ".",
+     "value": null
+    }
+   ]
+  },
+  {
+   "clean": "at pole one two three",
+   "raw": "at pole one two three",
+   "text": "at pole 123",
+   "tokens": [
+    {
+     "end": 2,
+     "kind": "word",
+     "start": 0,
+     "text": "at",
+     "value": null
+    },
+    {
+     "end": 7,
+     "kind": "word",
+     "start": 3,
+     "text": "pole",
+     "value": null
+    },
+    {
+     "end": 11,
+     "kind": "num",
+     "start": 8,
+     "text": "123",
+     "value": "123"
+    }
+   ]
+  },
+  {
+   "clean": "pole one hundred twenty three",
+   "raw": "pole one hundred twenty three",
+   "text": "pole 123",
+   "tokens": [
+    {
+     "end": 4,
+     "kind": "word",
+     "start": 0,
+     "text": "pole",
+     "value": null
+    },
+    {
+     "end": 8,
+     "kind": "num",
+     "start": 5,
+     "text": "123",
+     "value": "123"
+    }
+   ]
+  },
+  {
+   "clean": "pole one twenty three",
+   "raw": "pole one twenty three",
+   "text": "pole 123",
+   "tokens": [
+    {
+     "end": 4,
+     "kind": "word",
+     "start": 0,
+     "text": "pole",
+     "value": null
+    },
+    {
+     "end": 8,
+     "kind": "num",
+     "start": 5,
+     "text": "123",
+     "value": "123"
+    }
+   ]
+  },
+  {
+   "clean": "unit four fifty six",
+   "raw": "unit four fifty six",
+   "text": "unit 456",
+   "tokens": [
+    {
+     "end": 4,
+     "kind": "word",
+     "start": 0,
+     "text": "unit",
+     "value": null
+    },
+    {
+     "end": 8,
+     "kind": "num",
+     "start": 5,
+     "text": "456",
+     "value": "456"
+    }
+   ]
+  },
+  {
+   "clean": "unit twelve thirty four",
+   "raw": "unit twelve thirty four",
+   "text": "unit 1234",
+   "tokens": [
+    {
+     "end": 4,
+     "kind": "word",
+     "start": 0,
+     "text": "unit",
+     "value": null
+    },
+    {
+     "end": 9,
+     "kind": "num",
+     "start": 5,
+     "text": "1234",
+     "value": "1234"
+    }
+   ]
+  },
+  {
+   "clean": "pole oh seven",
+   "raw": "pole oh seven",
+   "text": "pole 07",
+   "tokens": [
+    {
+     "end": 4,
+     "kind": "word",
+     "start": 0,
+     "text": "pole",
+     "value": null
+    },
+    {
+     "end": 7,
+     "kind": "num",
+     "start": 5,
+     "text": "07",
+     "value": "07"
+    }
+   ]
+  },
+  {
+   "clean": "pole one oh four",
+   "raw": "pole one oh four",
+   "text": "pole 104",
+   "tokens": [
+    {
+     "end": 4,
+     "kind": "word",
+     "start": 0,
+     "text": "pole",
+     "value": null
+    },
+    {
+     "end": 8,
+     "kind": "num",
+     "start": 5,
+     "text": "104",
+     "value": "104"
+    }
+   ]
+  },
+  {
+   "clean": "serial double five seven",
+   "raw": "serial double five seven",
+   "text": "serial 557",
+   "tokens": [
+    {
+     "end": 6,
+     "kind": "word",
+     "start": 0,
+     "text": "serial",
+     "value": null
+    },
+    {
+     "end": 10,
+     "kind": "num",
+     "start": 7,
+     "text": "557",
+     "value": "557"
+    }
+   ]
+  },
+  {
+   "clean": "serial triple zero",
+   "raw": "serial triple zero",
+   "text": "serial 000",
+   "tokens": [
+    {
+     "end": 6,
+     "kind": "word",
+     "start": 0,
+     "text": "serial",
+     "value": null
+    },
+    {
+     "end": 10,
+     "kind": "num",
+     "start": 7,
+     "text": "000",
+     "value": "000"
+    }
+   ]
+  },
+  {
+   "clean": "pole two thousand five",
+   "raw": "pole two thousand five",
+   "text": "pole 2005",
+   "tokens": [
+    {
+     "end": 4,
+     "kind": "word",
+     "start": 0,
+     "text": "pole",
+     "value": null
+    },
+    {
+     "end": 9,
+     "kind": "num",
+     "start": 5,
+     "text": "2005",
+     "value": "2005"
+    }
+   ]
+  },
+  {
+   "clean": "meter one two three four five six seven eight",
+   "raw": "meter one two three four five six seven eight",
+   "text": "meter 12345678",
+   "tokens": [
+    {
+     "end": 5,
+     "kind": "word",
+     "start": 0,
+     "text": "meter",
+     "value": null
+    },
+    {
+     "end": 14,
+     "kind": "num",
+     "start": 6,
+     "text": "12345678",
+     "value": "12345678"
+    }
+   ]
+  },
+  {
+   "clean": "a twenty five k v a transformer",
+   "raw": "a twenty five k v a transformer",
+   "text": "a 25 kva transformer",
+   "tokens": [
+    {
+     "end": 1,
+     "kind": "word",
+     "start": 0,
+     "text": "a",
+     "value": null
+    },
+    {
+     "end": 4,
+     "kind": "num",
+     "start": 2,
+     "text": "25",
+     "value": "25"
+    },
+    {
+     "end": 8,
+     "kind": "word",
+     "start": 5,
+     "text": "kva",
+     "value": null
+    },
+    {
+     "end": 20,
+     "kind": "word",
+     "start": 9,
+     "text": "transformer",
+     "value": null
+    }
+   ]
+  },
+  {
+   "clean": "rated fourteen point two kilovolts",
+   "raw": "rated fourteen point two kilovolts",
+   "text": "rated 14.2 kilovolts",
+   "tokens": [
+    {
+     "end": 5,
+     "kind": "word",
+     "start": 0,
+     "text": "rated",
+     "value": null
+    },
+    {
+     "end": 10,
+     "kind": "num",
+     "start": 6,
+     "text": "14.2",
+     "value": "14.2"
+    },
+    {
+     "end": 20,
+     "kind": "word",
+     "start": 11,
+     "text": "kilovolts",
+     "value": null
+    }
+   ]
+  },
+  {
+   "clean": "pole 12 3",
+   "raw": "pole 12 3",
+   "text": "pole 123",
+   "tokens": [
+    {
+     "end": 4,
+     "kind": "word",
+     "start": 0,
+     "text": "pole",
+     "value": null
+    },
+    {
+     "end": 8,
+     "kind": "num",
+     "start": 5,
+     "text": "123",
+     "value": "123"
+    }
+   ]
+  },
+  {
+   "clean": "one of the poles was no one's",
+   "raw": "one of the poles was no one's",
+   "text": "one of the poles was no one's",
+   "tokens": [
+    {
+     "end": 3,
+     "kind": "word",
+     "start": 0,
+     "text": "one",
+     "value": null
+    },
+    {
+     "end": 6,
+     "kind": "word",
+     "start": 4,
+     "text": "of",
+     "value": null
+    },
+    {
+     "end": 10,
+     "kind": "word",
+     "start": 7,
+     "text": "the",
+     "value": null
+    },
+    {
+     "end": 16,
+     "kind": "word",
+     "start": 11,
+     "text": "poles",
+     "value": null
+    },
+    {
+     "end": 20,
+     "kind": "word",
+     "start": 17,
+     "text": "was",
+     "value": null
+    },
+    {
+     "end": 23,
+     "kind": "word",
+     "start": 21,
+     "text": "no",
+     "value": null
+    },
+    {
+     "end": 29,
+     "kind": "word",
+     "start": 24,
+     "text": "one's",
+     "value": null
+    }
+   ]
+  },
+  {
+   "clean": "it was the one on the left",
+   "raw": "it was the one on the left",
+   "text": "it was the one on the left",
+   "tokens": [
+    {
+     "end": 2,
+     "kind": "word",
+     "start": 0,
+     "text": "it",
+     "value": null
+    },
+    {
+     "end": 6,
+     "kind": "word",
+     "start": 3,
+     "text": "was",
+     "value": null
+    },
+    {
+     "end": 10,
+     "kind": "word",
+     "start": 7,
+     "text": "the",
+     "value": null
+    },
+    {
+     "end": 14,
+     "kind": "word",
+     "start": 11,
+     "text": "one",
+     "value": null
+    },
+    {
+     "end": 17,
+     "kind": "word",
+     "start": 15,
+     "text": "on",
+     "value": null
+    },
+    {
+     "end": 21,
+     "kind": "word",
+     "start": 18,
+     "text": "the",
+     "value": null
+    },
+    {
+     "end": 26,
+     "kind": "word",
+     "start": 22,
+     "text": "left",
+     "value": null
+    }
+   ]
+  },
+  {
+   "clean": "pole one",
+   "raw": "pole one",
+   "text": "pole 1",
+   "tokens": [
+    {
+     "end": 4,
+     "kind": "word",
+     "start": 0,
+     "text": "pole",
+     "value": null
+    },
+    {
+     "end": 6,
+     "kind": "num",
+     "start": 5,
+     "text": "1",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "clean": "I installed, unit 456.",
+   "raw": "Um, I installed, uh, unit 456.",
+   "text": "i installed, unit 456.",
+   "tokens": [
+    {
+     "end": 1,
+     "kind": "word",
+     "start": 0,
+     "text": "i",
+     "value": null
+    },
+    {
+     "end": 11,
+     "kind": "word",
+     "start": 2,
+     "text": "installed",
+     "value": null
+    },
+    {
+     "end": 12,
+     "kind": "punct",
+     "start": 11,
+     "text": ",",
+     "value": null
+    },
+    {
+     "end": 17,
+     "kind": "word",
+     "start": 13,
+     "text": "unit",
+     "value": null
+    },
+    {
+     "end": 21,
+     "kind": "num",
+     "start": 18,
+     "text": "456",
+     "value": "456"
+    },
+    {
+     "end": 22,
+     "kind": "punct",
+     "start": 21,
+     "text": ".",
+     "value": null
+    }
+   ]
+  },
+  {
+   "clean": "poles 1, 2, 3",
+   "raw": "poles 1, 2, 3",
+   "text": "poles 1, 2, 3",
+   "tokens": [
+    {
+     "end": 5,
+     "kind": "word",
+     "start": 0,
+     "text": "poles",
+     "value": null
+    },
+    {
+     "end": 7,
+     "kind": "num",
+     "start": 6,
+     "text": "1",
+     "value": "1"
+    },
+    {
+     "end": 8,
+     "kind": "punct",
+     "start": 7,
+     "text": ",",
+     "value": null
+    },
+    {
+     "end": 10,
+     "kind": "num",
+     "start": 9,
+     "text": "2",
+     "value": "2"
+    },
+    {
+     "end": 11,
+     "kind": "punct",
+     "start": 10,
+     "text": ",",
+     "value": null
+    },
+    {
+     "end": 13,
+     "kind": "num",
+     "start": 12,
+     "text": "3",
+     "value": "3"
+    }
+   ]
+  },
+  {
+   "clean": "pole 1-2-3, sorry, 3-28",
+   "raw": "pole 1-2-3, sorry, 3-28",
+   "text": "pole 123, sorry, 328",
+   "tokens": [
+    {
+     "end": 4,
+     "kind": "word",
+     "start": 0,
+     "text": "pole",
+     "value": null
+    },
+    {
+     "end": 8,
+     "kind": "num",
+     "start": 5,
+     "text": "123",
+     "value": "123"
+    },
+    {
+     "end": 9,
+     "kind": "punct",
+     "start": 8,
+     "text": ",",
+     "value": null
+    },
+    {
+     "end": 15,
+     "kind": "word",
+     "start": 10,
+     "text": "sorry",
+     "value": null
+    },
+    {
+     "end": 16,
+     "kind": "punct",
+     "start": 15,
+     "text": ",",
+     "value": null
+    },
+    {
+     "end": 20,
+     "kind": "num",
+     "start": 17,
+     "text": "328",
+     "value": "328"
+    }
+   ]
+  },
+  {
+   "clean": "feeder 23-22",
+   "raw": "feeder 23-22",
+   "text": "feeder 2322",
+   "tokens": [
+    {
+     "end": 6,
+     "kind": "word",
+     "start": 0,
+     "text": "feeder",
+     "value": null
+    },
+    {
+     "end": 11,
+     "kind": "num",
+     "start": 7,
+     "text": "2322",
+     "value": "2322"
+    }
+   ]
+  },
+  {
+   "clean": "transformer tango four four seven one",
+   "raw": "transformer tango four four seven one",
+   "text": "transformer T4471",
+   "tokens": [
+    {
+     "end": 11,
+     "kind": "word",
+     "start": 0,
+     "text": "transformer",
+     "value": null
+    },
+    {
+     "end": 17,
+     "kind": "id",
+     "start": 12,
+     "text": "T4471",
+     "value": "T4471"
+    }
+   ]
+  },
+  {
+   "clean": "pole A as in alpha seven seven",
+   "raw": "pole A as in alpha seven seven",
+   "text": "pole A77",
+   "tokens": [
+    {
+     "end": 4,
+     "kind": "word",
+     "start": 0,
+     "text": "pole",
+     "value": null
+    },
+    {
+     "end": 8,
+     "kind": "id",
+     "start": 5,
+     "text": "A77",
+     "value": "A77"
+    }
+   ]
+  },
+  {
+   "clean": "pole T-4471",
+   "raw": "pole T-4471",
+   "text": "pole T4471",
+   "tokens": [
+    {
+     "end": 4,
+     "kind": "word",
+     "start": 0,
+     "text": "pole",
+     "value": null
+    },
+    {
+     "end": 10,
+     "kind": "id",
+     "start": 5,
+     "text": "T4471",
+     "value": "T4471"
+    }
+   ]
+  },
+  {
+   "clean": "mike checked the pole",
+   "raw": "mike checked the pole",
+   "text": "mike checked the pole",
+   "tokens": [
+    {
+     "end": 4,
+     "kind": "word",
+     "start": 0,
+     "text": "mike",
+     "value": null
+    },
+    {
+     "end": 12,
+     "kind": "word",
+     "start": 5,
+     "text": "checked",
+     "value": null
+    },
+    {
+     "end": 16,
+     "kind": "word",
+     "start": 13,
+     "text": "the",
+     "value": null
+    },
+    {
+     "end": 21,
+     "kind": "word",
+     "start": 17,
+     "text": "pole",
+     "value": null
+    }
+   ]
+  },
+  {
+   "clean": "First thing. Second thing here.",
+   "raw": "First thing. Second thing here.",
+   "text": "first thing. second thing here.",
+   "tokens": [
+    {
+     "end": 5,
+     "kind": "word",
+     "start": 0,
+     "text": "first",
+     "value": null
+    },
+    {
+     "end": 11,
+     "kind": "word",
+     "start": 6,
+     "text": "thing",
+     "value": null
+    },
+    {
+     "end": 12,
+     "kind": "punct",
+     "start": 11,
+     "text": ".",
+     "value": null
+    },
+    {
+     "end": 19,
+     "kind": "word",
+     "start": 13,
+     "text": "second",
+     "value": null
+    },
+    {
+     "end": 25,
+     "kind": "word",
+     "start": 20,
+     "text": "thing",
+     "value": null
+    },
+    {
+     "end": 30,
+     "kind": "word",
+     "start": 26,
+     "text": "here",
+     "value": null
+    },
+    {
+     "end": 31,
+     "kind": "punct",
+     "start": 30,
+     "text": ".",
+     "value": null
+    }
+   ]
+  }
+ ],
+ "normalizer_extra_id_triggers": [
+  "asset",
+  "at",
+  "breaker",
+  "cabinet",
+  "circuit",
+  "cutout",
+  "existing",
+  "feeder",
+  "fuse",
+  "id",
+  "in",
+  "installed",
+  "lamp",
+  "light",
+  "meter",
+  "new",
+  "no",
+  "number",
+  "old",
+  "pad",
+  "panel",
+  "pedestal",
+  "pole",
+  "poles",
+  "pulled",
+  "put",
+  "recloser",
+  "removed",
+  "replacement",
+  "serial",
+  "streetlight",
+  "structure",
+  "swapped",
+  "switch",
+  "tag",
+  "tap",
+  "transformer",
+  "unit",
+  "units"
+ ],
+ "note": "Regenerate after any change to normalize/resolver/formpack/prompts; backend tests fail on drift.",
+ "pipeline_rules_only": [
+  {
+   "expected": {
+    "condition_found": "oil_leak",
+    "pole_id": "123",
+    "replacement_unit": "456",
+    "work_performed": "transformer_replacement"
+   },
+   "fields": {
+    "condition_found": {
+     "confidence": 0.95,
+     "status": "filled",
+     "value": "oil_leak"
+    },
+    "notes": {
+     "confidence": 0.9,
+     "status": "filled",
+     "value": "I replaced the transformer at pole 123. The old unit was leaking oil and I installed unit 456."
+    },
+    "pole_id": {
+     "confidence": 0.96,
+     "status": "filled",
+     "value": "123"
+    },
+    "replacement_unit": {
+     "confidence": 0.96,
+     "status": "filled",
+     "value": "456"
+    },
+    "work_performed": {
+     "confidence": 0.88,
+     "status": "filled",
+     "value": "transformer_replacement"
+    }
+   },
+   "transcript": "I replaced the transformer at pole 123. The old unit was leaking oil and I installed unit 456."
+  },
+  {
+   "expected": {
+    "pole_id": "123",
+    "replacement_unit": "456",
+    "work_performed": "transformer_replacement"
+   },
+   "fields": {
+    "notes": {
+     "confidence": 0.9,
+     "status": "filled",
+     "value": "at pole one two three I swapped the transformer and put in unit four fifty six"
+    },
+    "pole_id": {
+     "confidence": 0.96,
+     "status": "filled",
+     "value": "123"
+    },
+    "replacement_unit": {
+     "confidence": 0.96,
+     "status": "filled",
+     "value": "456"
+    },
+    "work_performed": {
+     "confidence": 0.88,
+     "status": "filled",
+     "value": "transformer_replacement"
+    }
+   },
+   "transcript": "at pole one two three I swapped the transformer and put in unit four fifty six"
+  },
+  {
+   "expected": {
+    "condition_found": "none",
+    "pole_id": "A77",
+    "work_performed": "pole_inspection"
+   },
+   "fields": {
+    "condition_found": {
+     "confidence": 0.95,
+     "status": "filled",
+     "value": "none"
+    },
+    "notes": {
+     "confidence": 0.9,
+     "status": "filled",
+     "value": "Inspected the pole A as in alpha seven seven, looked fine"
+    },
+    "pole_id": {
+     "confidence": 0.96,
+     "status": "filled",
+     "value": "A77"
+    },
+    "work_performed": {
+     "confidence": 0.88,
+     "status": "filled",
+     "value": "pole_inspection"
+    }
+   },
+   "transcript": "Inspected the pole A as in alpha seven seven, looked fine"
+  },
+  {
+   "expected": {
+    "customer_notified": true,
+    "pole_id": "123",
+    "removed_unit": "T9921",
+    "replacement_unit": "456",
+    "work_performed": "transformer_replacement"
+   },
+   "fields": {
+    "customer_notified": {
+     "confidence": 0.9,
+     "status": "filled",
+     "value": true
+    },
+    "notes": {
+     "confidence": 0.9,
+     "status": "filled",
+     "value": "replaced the transformer at pole 123, removed unit T9921 and installed unit 456, customer notified"
+    },
+    "pole_id": {
+     "confidence": 0.96,
+     "status": "filled",
+     "value": "123"
+    },
+    "removed_unit": {
+     "confidence": 0.96,
+     "status": "filled",
+     "value": "T9921"
+    },
+    "replacement_unit": {
+     "confidence": 0.96,
+     "status": "filled",
+     "value": "456"
+    },
+    "work_performed": {
+     "confidence": 0.88,
+     "status": "filled",
+     "value": "transformer_replacement"
+    }
+   },
+   "transcript": "replaced the transformer at pole 123, removed unit T9921 and installed unit 456, customer notified"
+  },
+  {
+   "expected": {
+    "pole_id": "123",
+    "replacement_unit": "465"
+   },
+   "fields": {
+    "notes": {
+     "confidence": 0.9,
+     "status": "filled",
+     "value": "pole one twenty three, installed unit four five six, no wait four six five"
+    },
+    "pole_id": {
+     "confidence": 0.96,
+     "status": "filled",
+     "value": "123"
+    },
+    "replacement_unit": {
+     "confidence": 0.88,
+     "status": "filled",
+     "value": "465"
+    }
+   },
+   "transcript": "pole one twenty three, installed unit four five six, no wait four six five"
+  },
+  {
+   "expected": {
+    "condition_found": "corrosion",
+    "kva_rating": 25.0,
+    "pole_id": "132",
+    "work_performed": "transformer_repair"
+   },
+   "fields": {
+    "condition_found": {
+     "confidence": 0.95,
+     "status": "filled",
+     "value": "corrosion"
+    },
+    "kva_rating": {
+     "confidence": 0.92,
+     "status": "filled",
+     "value": 25.0
+    },
+    "notes": {
+     "confidence": 0.9,
+     "status": "filled",
+     "value": "repaired the transformer at pole 132, twenty five k v a, corrosion"
+    },
+    "pole_id": {
+     "confidence": 0.96,
+     "status": "filled",
+     "value": "132"
+    },
+    "work_performed": {
+     "confidence": 0.88,
+     "status": "filled",
+     "value": "transformer_repair"
+    }
+   },
+   "transcript": "repaired the transformer at pole 132, twenty five k v a, corrosion"
+  },
+  {
+   "expected": {
+    "customer_notified": false,
+    "pole_id": "132",
+    "replacement_unit": "789",
+    "work_performed": "transformer_replacement"
+   },
+   "fields": {
+    "customer_notified": {
+     "confidence": 0.9,
+     "status": "filled",
+     "value": false
+    },
+    "notes": {
+     "confidence": 0.9,
+     "status": "filled",
+     "value": "changed out the transformer at pole 132 and installed unit 789, the customer was not notified"
+    },
+    "pole_id": {
+     "confidence": 0.96,
+     "status": "filled",
+     "value": "132"
+    },
+    "replacement_unit": {
+     "confidence": 0.96,
+     "status": "filled",
+     "value": "789"
+    },
+    "work_performed": {
+     "confidence": 0.88,
+     "status": "filled",
+     "value": "transformer_replacement"
+    }
+   },
+   "transcript": "changed out the transformer at pole 132 and installed unit 789, the customer was not notified"
+  },
+  {
+   "expected": {
+    "condition_found": "corrosion",
+    "pole_id": "123",
+    "removed_unit": "T9921",
+    "replacement_unit": "456",
+    "work_performed": "transformer_replacement"
+   },
+   "fields": {
+    "condition_found": {
+     "confidence": 0.95,
+     "status": "filled",
+     "value": "corrosion"
+    },
+    "notes": {
+     "confidence": 0.9,
+     "status": "filled",
+     "value": "Replaced the transformer at pole 123 and the old unit T9921 had rust, installed 456"
+    },
+    "pole_id": {
+     "confidence": 0.96,
+     "status": "filled",
+     "value": "123"
+    },
+    "removed_unit": {
+     "confidence": 0.96,
+     "status": "filled",
+     "value": "T9921"
+    },
+    "replacement_unit": {
+     "confidence": 0.96,
+     "status": "filled",
+     "value": "456"
+    },
+    "work_performed": {
+     "confidence": 0.88,
+     "status": "filled",
+     "value": "transformer_replacement"
+    }
+   },
+   "transcript": "Replaced the transformer at pole 123 and the old unit T9921 had rust, installed 456"
+  }
+ ],
+ "version": 1
+}

@@ -1,0 +1,94 @@
+# ======================================================================================================================
+# FieldVoice - what must NEVER be committed
+#
+#   1. AI models. Foundry Local downloads them into data/models: about 2 GB for the demo, about 20 GB for every model
+#      compared in docs/RESULTS.md. A single file is larger than GitHub's 100 MB limit.
+#   2. Everything generated at run time: datasets and speech audio, the local device store, evaluation runs, benchmarks.
+#   3. Virtual environments, node_modules, build output, secrets.
+#
+# Curated, shareable evidence (the evaluation runs behind docs/RESULTS.md) lives in results/ and IS committed.
+# ======================================================================================================================
+
+# --- Runtime data: the whole data/ folder is local state (the folder itself is kept so a fresh clone has it) -------------
+/data/*
+!/data/.gitkeep
+
+# --- Model weights and audio, wherever they end up (belt and braces for the rule above) ---------------------------------
+*.onnx
+*.onnx_data
+*.gguf
+*.safetensors
+*.ckpt
+*.pt
+*.pth
+*.bin
+*.npz
+*.wav
+*.mp3
+*.flac
+*.ogg
+*.m4a
+foundry.modelinfo.json
+
+# --- Python ---------------------------------------------------------------------------------------------------------
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+build/
+
+# --- Node / frontend ------------------------------------------------------------------------------------------------
+node_modules/
+frontend/dist/
+frontend/smoke-output/
+*.tsbuildinfo
+.vite/
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# --- Secrets and local configuration (copy .env.example to .env; never commit the result) --------------------------------
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+*.pfx
+*.p12
+
+# --- Local databases and logs ---------------------------------------------------------------------------------------
+*.db
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite3
+*.log
+logs/
+
+# --- iOS spike (Swift / Xcode build output) ---------------------------------------------------------------------------
+.build/
+.swiftpm/
+DerivedData/
+xcuserdata/
+*.xcuserstate
+
+# --- Editors, OS, scratch --------------------------------------------------------------------------------------------
+.vs/
+.vscode/
+.idea/
+*.swp
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
+tmp/
+temp/
+scratch/
