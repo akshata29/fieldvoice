@@ -182,6 +182,27 @@ def test_llm_failure_is_reported_not_raised() -> None:
     assert res.fields["pole_id"].value == "123"  # deterministic results survive an LLM failure
 
 
+def test_without_guidance_the_pipeline_falls_through_to_plain_generation_and_stays_safe() -> None:
+    # the prebuilt ONNX Runtime GenAI iOS build has no constrained decoding: a grammar/schema request throws (docs/IOS_SPIKE.md)
+    class NoGuidance(ScriptedLlm):
+        def complete(self, system, user, *, response_format=None, max_tokens=200, temperature=0.0):  # type: ignore[override]
+            if response_format:
+                self.calls.append({"system": system, "user": user, "response_format": response_format})
+                raise RuntimeError('Guidance is unavailable in this build (guidance_type="%s").' % response_format["type"])
+            return super().complete(system, user, response_format=None, max_tokens=max_tokens, temperature=temperature)
+
+    text = "Replaced the transformer at pole 123, the old unit was weeping badly, installed unit 456."
+    llm = NoGuidance(reply={"condition_found": "oil_leak", "removed_unit": "999"})
+    res = ExtractionPipeline().run(make_input(text), "hybrid", llm)
+    tried = [(c["response_format"] or {}).get("type") for c in llm.calls]
+    assert tried == ["lark_grammar", "json_schema", None]  # the pipeline's own chain ends unconstrained
+    assert res.error is None
+    f = res.fields["condition_found"]
+    assert f.value == "oil_leak" and f.status == FieldStatus.NEEDS_REVIEW and f.source == FieldSource.LLM
+    assert res.fields["removed_unit"].value is None  # an id outside the job's assets is still refused
+    assert res.fields["pole_id"].status == FieldStatus.FILLED  # and the deterministic fields are untouched
+
+
 def test_events_stream_progressively() -> None:
     events: list[dict] = []
     ExtractionPipeline().run(make_input(CANONICAL), "rules_only", on_event=events.append)

@@ -80,6 +80,21 @@ Or read `runs/<run_id>/report.md` directly on GitHub.
 | `20261030-225422-36102f` | llmonly-baselines-qwen2.5-3b-20 | free JSON and schema-constrained, first 20 cases |
 | `20261030-192045-d88b89` | qwen0.5b heldout (shared CPU) | 0.5B model, earlier code, loaded machine |
 
+**iOS-build behavior** (the prebuilt ONNX Runtime GenAI iOS build has no grammar-constrained decoding; held-out split, correct
+transcript, `hybrid` strategy) - [docs/IOS_SPIKE.md](../docs/IOS_SPIKE.md)
+
+| Run | Label | Notes |
+|---|---|---|
+| `20261106-181358-0657e7` | ios-noguidance-qwen2.5-1.5b | grammar blocked, default prompt |
+| `20261106-181958-589d59` | ios-noguidance-qwen2.5-3b | grammar blocked, default prompt |
+| `20261106-191258-dcef9b` | ios-noguidance-v3-tolerant-qwen2.5-1.5b | grammar blocked, flat prompt `v3`, `--tolerant-enums` (an earlier run with an equivalent scratch script gave identical numbers) |
+| `20261106-184221-356a43` | ios-noguidance-v3-tolerant-qwen2.5-3b | grammar blocked, flat prompt `v3`, `--tolerant-enums` |
+| `20261106-185813-81651b` | ios-noguidance-v3-tolerant-phi-4-mini | grammar blocked, flat prompt `v3`, `--tolerant-enums` |
+
+Made with `python -m backend.evalkit.noguidance` (commands in docs/RESULTS.md, "Reproduce"; the prompt variant is the
+`FV_PATCH_PROMPT` setting, which a run's `summary.json` does not record - the labels do). Other work shared the laptop while
+these ran, so their latency columns are **not** comparable with the quiet-machine runs above; the accuracy columns are.
+
 **Smoke check**
 
 | Run | Label | Notes |

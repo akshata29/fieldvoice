@@ -70,7 +70,9 @@ static NSError *MakeError(const std::exception &e) {
     params->SetSearchOption("max_length", static_cast<double>(promptTokens + static_cast<size_t>(maxTokens)));
     params->SetSearchOption("batch_size", 1);
     if (larkGrammar.length > 0) {
-      params->SetGuidance("lark_grammar", larkGrammar.UTF8String);  // requires a build with guidance (llguidance) enabled
+      // needs a build with guidance (llguidance); the prebuilt iOS framework has none and throws "Guidance is unavailable
+      // in this build", which the catch below returns as an NSError
+      params->SetGuidance("lark_grammar", larkGrammar.UTF8String);
     }
 
     auto generator = OgaGenerator::Create(*_model, *params);

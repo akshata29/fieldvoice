@@ -45,7 +45,8 @@ struct ContentView: View {
             for model in models where model.hasDirectoryPath {
                 append("== \(model.lastPathComponent)")
                 let results = await Task.detached {
-                    LlmBench.run(runner: OrtGenAISwiftRunner(modelPath: model), vectors: vectors, repeats: 3) { self.append($0) }
+                    // useGrammar: false - the prebuilt iOS framework has no constrained decoding (docs/IOS_SPIKE.md)
+                    LlmBench.run(runner: OrtGenAISwiftRunner(modelPath: model), vectors: vectors, repeats: 3, useGrammar: false) { self.append($0) }
                 }.value
                 append("wrote \(try results.write(to: docs).lastPathComponent)")
             }

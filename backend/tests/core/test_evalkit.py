@@ -7,9 +7,13 @@ from pathlib import Path
 import pytest
 
 from backend.config import get_settings
+from backend.core import pipeline
+from backend.core.pipeline import ExtractionPipeline, PipelineInput
+from backend.engines.base import LlmResult
+from backend.engines.foundry_engines import FoundryLlmEngine
 from backend.engines.registry import EngineRegistry
 from backend.engines.simple import ScriptedLlm
-from backend.evalkit import metrics
+from backend.evalkit import metrics, noguidance
 from backend.evalkit.hardware import get_hardware_info
 from backend.evalkit.report import decide, markdown_report
 from backend.evalkit.runner import EvalRunner
@@ -41,6 +45,38 @@ def test_id_exact_match() -> None:
     assert metrics.id_exact_match("pole one two three unit four five six", "pole 1 2 3 unit 4 5 6") == 1.0
     assert metrics.id_exact_match("pole one two three unit four five six", "pole 1 2 3 unit 4 5 9") == 0.5
     assert metrics.id_exact_match("no numbers here", "anything") is None
+
+
+def test_noguidance_runner_refuses_guided_requests_and_passes_plain_ones(monkeypatch: pytest.MonkeyPatch) -> None:
+    seen: list[dict | None] = []
+
+    def real(self, system, user, *, response_format=None, max_tokens=200, temperature=0.0):
+        seen.append(response_format)
+        return LlmResult(text="{}", total_ms=1.0)
+
+    monkeypatch.setattr(FoundryLlmEngine, "complete", real)  # restored (with our wrapper) when the test ends
+    noguidance.install()
+    for fmt in ({"type": "lark_grammar", "lark_grammar": "start: x"}, {"type": "json_schema", "json_schema": {}}):
+        with pytest.raises(RuntimeError, match="Guidance is unavailable in this build"):
+            FoundryLlmEngine.complete(None, "s", "u", response_format=fmt)  # type: ignore[arg-type]
+    assert seen == []  # the real engine never saw a guided request
+    assert FoundryLlmEngine.complete(None, "s", "u").text == "{}"  # type: ignore[arg-type]
+    assert seen == [None]
+
+
+def test_noguidance_tolerant_enums_accept_a_label_the_strict_matcher_refuses(monkeypatch: pytest.MonkeyPatch) -> None:
+    text = "Replaced the transformer at pole 123, the old unit was weeping badly, installed unit 456."
+
+    def condition_found():
+        inp = PipelineInput(transcript=text, form=transformer_form(), assets=world_assets())
+        return ExtractionPipeline().run(inp, "hybrid", ScriptedLlm(reply={"condition_found": "Oil leak"})).fields["condition_found"]
+
+    assert condition_found().status == FieldStatus.MISSING  # strict: only the exact code counts
+    monkeypatch.setattr(FoundryLlmEngine, "complete", FoundryLlmEngine.complete)
+    monkeypatch.setattr(pipeline, "_coerce", pipeline._coerce)  # both restored when the test ends
+    noguidance.install(tolerant_enums=True)
+    f = condition_found()
+    assert f.value == "oil_leak" and f.status == FieldStatus.NEEDS_REVIEW
 
 
 def make_case(**kw) -> EvalCase:

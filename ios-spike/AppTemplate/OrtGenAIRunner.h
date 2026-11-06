@@ -1,8 +1,9 @@
 // Objective-C++ bridge to the ONNX Runtime GenAI C++ API.
 // NOT COMPILED OR RUN in the environment that produced it (no Mac / Xcode). The call sequence follows the usage example in
-// onnxruntime-genai/src/ort_genai.h (main branch) and the official iOS sample
+// onnxruntime-genai/src/ort_genai.h (every call also exists in the v0.19.0 header) and the official iOS sample
 // onnxruntime-inference-examples/mobile/examples/phi-3/ios/LocalLLM. Header/library versions must match each other:
-// build onnxruntime + onnxruntime-genai for iOS yourself (ORT GenAI lists iOS as "on the roadmap").
+// use the prebuilt iOS xcframework from the onnxruntime-genai release (it ships the headers). That build has no
+// constrained decoding, so a non-nil `grammar` fails there - see docs/IOS_SPIKE.md.
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN

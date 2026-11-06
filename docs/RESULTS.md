@@ -262,6 +262,10 @@ foundry:llm:qwen2.5-1.5b:cpu` (a minute per engine) - it replaces this section w
 * **A different mechanism for slang.** A small embedding model matching clauses to option phrases (no generation at all)
   is the obvious next experiment: it costs a fraction of a 3B call and has no way to hallucinate a value that is not an
   option. Not built.
+* **No grammar-constrained decoding.** The prebuilt ONNX Runtime GenAI iOS build has none, and the default prompt was written
+  around the grammar: without it Qwen2.5-1.5B and 3B fall from 93.4 / 98.3 % to 83.9 / 83.4 % field accuracy (silent-wrong
+  still 0 %), and a flat prompt with tolerant option matching recovers 90.6 / 94.5 % (Phi-4-mini: 96.4 %, grammar 98.3 %). Details in
+  [IOS_SPIKE.md](IOS_SPIKE.md#what-losing-the-grammar-costs); `python -m backend.evalkit.noguidance` reproduces it.
 * **KV-cache reuse of a static prefix.** Would cut the prompt cost, but Foundry Local's grammar path is stateless
   (`docs/FINDINGS.md` #12). Worth a spike.
 
@@ -292,6 +296,8 @@ scripts\run_eval.bat run --dataset synth-v1 --split heldout --strategy enum_gram
 scripts\run_eval.bat run --dataset synth-v1 --split heldout --limit 20 --strategy free_json --strategy schema_constrained --llm foundry:llm:qwen2.5-3b:cpu
 scripts\run_eval.bat run --dataset synth-v1 --split heldout --stt foundry:stt:whisper-base:cpu --llm foundry:llm:qwen2.5-1.5b:cpu --strategy hybrid
 set "FV_PATCH_PROMPT=v0" && scripts\run_eval.bat run --dataset prompt-dev --strategy hybrid --llm foundry:llm:qwen2.5-1.5b:cpu
+.venv\Scripts\python.exe -m backend.evalkit.noguidance run --dataset synth-v1 --split heldout --strategy hybrid --llm foundry:llm:qwen2.5-1.5b:cpu
+set "FV_PATCH_PROMPT=v3" && .venv\Scripts\python.exe -m backend.evalkit.noguidance run --dataset synth-v1 --split heldout --strategy hybrid --llm foundry:llm:qwen2.5-3b:cpu --tolerant-enums
 ```
 
 Stored runs referenced above (`data/runs/`; copies in `results/runs/`): speech sweeps `20261030-190732-9d6a37` (tiny / base / small) and
@@ -302,5 +308,7 @@ Stored runs referenced above (`data/runs/`; copies in `results/runs/`): speech s
 `-235232-76aef4`), `-222002-79be0f` (hybrid, run before the hyphen fix: one of its 36 clips is affected); LLM-only
 `-223427-7f50ba` (1.5B), `-223953-f8f75e` (3B), `-224911-717c4f` (Ministral, 30 cases), `-225422-36102f` (free JSON / schema,
 20 cases), `20261030-192045-d88b89` (0.5B, earlier, shared CPU); prompt comparisons labelled `pv-*` and
-`heldout-qwen2.5-1.5b-v0/v4`. Device probes: `data/bench/stt-all.json` (speech, live), `data/bench/llm-*.json` (copies in
+`heldout-qwen2.5-1.5b-v0/v4`; grammar blocked (the iOS-build behavior, `ios-noguidance-*`) `20261106-181358-0657e7` (1.5B),
+`-181958-589d59` (3B), `-191258-dcef9b` (1.5B, flat prompt), `-184221-356a43` (3B, flat prompt), `-185813-81651b` (Phi-4-mini,
+flat prompt). Device probes: `data/bench/stt-all.json` (speech, live), `data/bench/llm-*.json` (copies in
 `results/bench/`).

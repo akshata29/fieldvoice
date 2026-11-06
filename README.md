@@ -231,7 +231,10 @@ and fixed ten real defects ([docs/DATASET.md](docs/DATASET.md#what-the-data-foun
 * **Microphone capture against the real backend**, and any browser other than Edge/Chromium. Sample playback and the
   WebSocket path with fake engines are tested.
 * **Azure Speech engines** (embedded and cloud): implemented, never run (they need credentials or limited-access files).
-* **iOS.** Foundry Local does not target iOS. `ios-spike/` is uncompiled scaffolding plus tested Python tooling.
+* **iOS and iPad.** Foundry Local does not target iOS, but the engine inside it (ONNX Runtime GenAI) ships prebuilt iOS
+  binaries and a .NET NuGet. [docs/IOS_SPIKE.md](docs/IOS_SPIKE.md) lists what was verified (and the measured cost of the one
+  gap: no grammar-constrained decoding in that build). Nothing has been run on a device; `ios-spike/` is uncompiled
+  scaffolding plus tested Python tooling.
 * **Security hardening** (encrypted store, single sign-on instead of the demo PIN, device management) and a real
   system-of-record integration.
 * **Windows 10, Python 3.12+ and 8 GB machines** are untested.
@@ -240,15 +243,18 @@ and fixed ten real defects ([docs/DATASET.md](docs/DATASET.md#what-the-data-foun
 ## Models and licenses
 
 The models are **not** part of this repository. They are downloaded from the Foundry Local catalog on first use; check each
-model's license and terms yourself before any production use. As reported by the catalog on the development machine:
+model's license and terms yourself before any production use. The catalog's license field and the upstream Hugging Face
+model card were compared on 6 Nov 2026 and **disagree for two models**, so do not rely on the catalog value alone - read
+the license of the exact artifact you ship, especially before redistributing model files inside an app:
 
-| Model family | Used here | Catalog-reported license |
-|---|---|---|
-| Whisper (tiny, base, small, medium) | Speech-to-text | Apache-2.0 |
-| Nemotron speech streaming 0.6B | Streaming speech-to-text | MIT |
-| Qwen2.5 (0.5B, 1.5B, 3B) | Field extraction | Apache-2.0 |
-| Ministral-3-3B | Field extraction | Apache-2.0 |
-| Phi-3.5-mini, Phi-4-mini | Field extraction | MIT |
+| Model family | Used here | Foundry catalog says | Hugging Face model card says |
+|---|---|---|---|
+| Whisper (tiny, base, small, medium) | Speech-to-text | Apache-2.0 | Apache-2.0 |
+| Nemotron speech streaming 0.6B | Streaming speech-to-text | MIT | **NVIDIA Open Model License** |
+| Qwen2.5 0.5B, 1.5B | Field extraction | Apache-2.0 | Apache-2.0 |
+| Qwen2.5 3B | Field extraction | Apache-2.0 | **Qwen Research License** (`qwen-research`) |
+| Ministral-3-3B | Field extraction | Apache-2.0 | Apache-2.0 |
+| Phi-3.5-mini, Phi-4-mini | Field extraction | MIT | MIT |
 
 ## Documentation
 
@@ -264,7 +270,7 @@ model's license and terms yourself before any production use. As reported by the
 | [docs/UI.md](docs/UI.md) | The frontend: pages, mock mode, Field mode, smoke test |
 | [docs/CONTRACT.md](docs/CONTRACT.md) | REST and WebSocket contracts and conventions |
 | [docs/FINDINGS.md](docs/FINDINGS.md) | Verified research findings about Foundry Local and the engines |
-| [docs/IOS_SPIKE.md](docs/IOS_SPIKE.md) | The iOS question: what is known, what the spike kit measures |
+| [docs/IOS_SPIKE.md](docs/IOS_SPIKE.md) | The iOS / iPad question: what was verified on the ONNX Runtime GenAI iOS build, what it costs without grammar decoding, and the spike that settles the rest |
 | [results/README.md](results/README.md) | Index of the stored evaluation runs |
 
 ## About this repository
